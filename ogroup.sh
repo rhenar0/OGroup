@@ -30,10 +30,10 @@ done
 cgcreate -g memory:/$cgroup_name
 
 # set the memory limit for the cgroup
-cgset -r memory.limit_in_bytes=$memory_limit $cgroup_name
+cgset -r memory.high=$memory_limit $cgroup_name
 
 # set the CPU limit for the cgroup
-cgset -r cpu.cfs_quota_us=$cpu_limit $cgroup_name
+cgset -r cpu.max=$cpu_limit $cgroup_name
 
 # run the specified command within the cgroup
 cgexec -g memory:$cgroup_name $command
